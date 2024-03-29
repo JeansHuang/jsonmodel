@@ -462,7 +462,9 @@ static JSONKeyMapper* globalKeyMapper = nil;
                             JSONModelError* dataErr = [JSONModelError errorInvalidDataWithTypeMismatch:msg];
                             *err = [dataErr errorByPrependingKeyPathComponent:property.name];
                         }
-                        return NO;
+                        // return NO;
+                        // 类型不对，跳过解析，不返回NO
+                        continue;
                     }
                 } else {
                     // 3.4) handle "all other" cases (if any)
